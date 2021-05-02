@@ -1,0 +1,60 @@
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar color='primary'>
+    <ion-title>
+      <ion-icon name="home-outline"></ion-icon>
+      Tenant Hunt / Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+      <section>
+        <ion-button (click)="goBack()"><ion-icon name="arrow-back-outline"></ion-icon> back</ion-button>
+      </section>
+      <ion-card>
+            <ion-img style="width:100%;" src="https://content.fortune.com/wp-content/uploads/2020/07/GettyImages-1254869787_web.jpg?resize=1000,666"></ion-img>
+        <ion-button expand="full" color="success">Edit Profile</ion-button>
+        <ion-card-content>
+          <ion-item>
+            <h2>Name: Donald Trump</h2>
+          </ion-item>
+          <ion-item>
+            <h2>Location: United States of America</h2>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+      <section>
+        <ion-button expand="full" (click)="goToLogin()" color="danger"><ion-icon name="log-out-outline"></ion-icon>Logout</ion-button>
+      </section>
+      <ion-card>
+        <ion-card-content>
+          <ion-header>Posts</ion-header>
+          <ion-item>
+            <ion-label position="floating"><ion-icon name="search-outline"></ion-icon>Search</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-img style="height:80px;width:80px" src="http://www.propertyfinderph.com/uploads/listing-photo/listings-photo/46326/174789/620_400-b56d457d03.jpg"></ion-img>
+            <p>: Olongapo City </p>
+            <ion-button>view</ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-img style="height:80px;width:80px" src="http://www.propertyfinderph.com/uploads/listing-photo/listings-photo/46326/174791/620_400-6cfb860780.jpg"></ion-img>
+            <p>: Olongapo City </p>
+            <ion-button>view</ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-img style="height:80px;width:80px" src="https://morefun.ph/wp-content/uploads/2018/03/IMG_0105.jpg"></ion-img>
+            <p>: Olongapo City </p>
+            <ion-button>view</ion-button>
+          </ion-item>
+          <ion-item>
+            <ion-img style="height:80px;width:80px" src="https://static-ph.lamudi.com/static/media/cXVhbGl0eS83MA%3D%3D/2x2x2x700x340/ebf822bbbeaeeb.jpg"></ion-img>
+            <p>: Olongapo City </p>
+            <ion-button>view</ion-button>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+</ion-content>
+
