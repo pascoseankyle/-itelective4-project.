@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { DataService } from '../services/data.service'; // Service
+import { Router } from '@angular/router'; // Navigation
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -7,11 +8,18 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
-  constructor(private router: Router) {}
+  varSample:string="Sample String!";
+  users: any;
+  posts: any;
+  post: any;
 
-  ngOnInit() {
-  }
+  constructor(private data: DataService, private router: Router) {}
+
+  ngOnInit() {}
+
   login(){
     this.router.navigate(['home']);
   }
+
+
 }

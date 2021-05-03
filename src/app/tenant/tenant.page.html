@@ -7,23 +7,19 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-      <ion-card>
-        <ion-button (click)="goToHome()"><ion-icon name="arrow-back-outline"></ion-icon>back</ion-button>
-      <ion-card-content>
-        <ion-item>
+      <ion-button (click)="goToHome()"><ion-icon name="arrow-back-outline"></ion-icon>back</ion-button>
+       <ion-item>
           <ion-label position="floating"><ion-icon name="search-outline"></ion-icon>Search</ion-label>
           <ion-input type="text"></ion-input>
         </ion-item>
-        <ion-item>
-          <ion-img style="height:80px;width:80px" src="https://miro.medium.com/max/875/1*PgIo7r6qQXem8BmWd-vksQ.jpeg"></ion-img>
-          <p>: Olongapo City </p>
-          <ion-button>view</ion-button>
-        </ion-item>
-        <ion-item>
-          <ion-img style="height:80px;width:80px" src="https://www.harleytherapy.co.uk/counselling/wp-content/uploads/16297800391_5c6e812832.jpg"></ion-img>
-          <p>: Olongapo City </p>
-          <ion-button>view</ion-button>
-        </ion-item>
-      </ion-card-content>
-    </ion-card>
+        <ion-card *ngFor="let post of post">
+          <ion-card-content>
+            <ion-label>{{ post.post_tenant_title }}</ion-label>
+            <p>Budget: ₱{{ post.post_tenant_budget }}</p>
+            <ion-card>
+              <ion-img style="height:100%;width:100%" src="https://miro.medium.com/max/875/1*PgIo7r6qQXem8BmWd-vksQ.jpeg"></ion-img>
+            </ion-card>
+            <ion-button expand="full">view</ion-button>
+          </ion-card-content>
+        </ion-card>
 </ion-content>

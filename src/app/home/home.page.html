@@ -7,35 +7,26 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-card-content>
+    <ion-card>
+      <ion-card-content>
         <ion-button (click)="goToProfile()"><ion-icon name="person-circle-outline"></ion-icon> profile</ion-button>
-        <ion-button (click)="goToPost()" color="success">post<ion-icon name="add-circle-outline"></ion-icon></ion-button>
-        <ion-button (click)="goToTenants()"><ion-icon name="people-outline"></ion-icon></ion-button>
+        <ion-button (click)="goToTenants()"><ion-icon name="people-outline"></ion-icon>tenant</ion-button>
     </ion-card-content>
-  </ion-card>
+    </ion-card>
+    <ion-button expand="full" (click)="goToPost()" color="success">add post<ion-icon name="add-circle-outline"></ion-icon></ion-button>
   <ion-item>
     <ion-label position="floating"><ion-icon name="search-outline"></ion-icon>Search</ion-label>
     <ion-input type="text"></ion-input>
     </ion-item>
-  <ion-item>
-    <ion-img style="height:80px;width:80px" src="http://www.propertyfinderph.com/uploads/listing-photo/listings-photo/46326/174789/620_400-b56d457d03.jpg"></ion-img>
-    <p>: Olongapo City </p>
-    <ion-button>view</ion-button>
-  </ion-item>
-  <ion-item>
-    <ion-img style="height:80px;width:80px" src="http://www.propertyfinderph.com/uploads/listing-photo/listings-photo/46326/174791/620_400-6cfb860780.jpg"></ion-img>
-    <p>: Olongapo City </p>
-    <ion-button>view</ion-button>
-  </ion-item>
-  <ion-item>
-    <ion-img style="height:80px;width:80px" src="https://morefun.ph/wp-content/uploads/2018/03/IMG_0105.jpg"></ion-img>
-    <p>: Olongapo City </p>
-    <ion-button>view</ion-button>
-  </ion-item>
-  <ion-item>
-    <ion-img style="height:80px;width:80px" src="https://static-ph.lamudi.com/static/media/cXVhbGl0eS83MA%3D%3D/2x2x2x700x340/ebf822bbbeaeeb.jpg"></ion-img>
-    <p>: Olongapo City </p>
-    <ion-button>view</ion-button>
-  </ion-item>
+
+  <ion-card *ngFor="let post of post">
+    <ion-card-content>
+      <ion-label>{{ post.post_title }}</ion-label>
+      <p>{{ post.post_location }}</p>
+      <ion-card>
+        <ion-img style="height:100%;width:100%" src="http://www.propertyfinderph.com/uploads/listing-photo/listings-photo/46326/174789/620_400-b56d457d03.jpg"></ion-img>
+      </ion-card>
+      <ion-button expand="full">view</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

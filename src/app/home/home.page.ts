@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { DataService } from '../services/data.service'; // Service
+import { Router } from '@angular/router'; // Navigation
 
 @Component({
   selector: 'app-home',
@@ -7,8 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  posts: any;
+  post: any;
 
-  constructor(private router: Router) {}
+  constructor(private data: DataService, private router: Router) {}
+
+  ngOnInit() {
+    this.getPosts(); // Call Function
+  }
+
   goToProfile(){
     this.router.navigate(['profile']);
   }
@@ -17,5 +25,14 @@ export class HomePage {
   }
   goToTenants(){
     this.router.navigate(['tenant']);
+  }
+
+  getPosts(){
+    this.data.getData('post').subscribe((res)=>{
+      console.log(res);
+      this.posts = res;
+      this.post = this.posts.payload;
+      console.log(this.post);
+    });
   }
 }
