@@ -6,12 +6,14 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
-    <ion-button (click)="goBack()"><ion-icon name="arrow-back-outline"></ion-icon>back</ion-button>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-button (click)="goBack()"><ion-icon name="arrow-back-outline"></ion-icon>back</ion-button>
     <ion-card>
       <ion-card-content>
-        <h1>Create a Post</h1>
+        <h1>Create Post</h1>
         <ion-item>
           <ion-label position="floating">Title</ion-label>
           <ion-input type="text"></ion-input>
@@ -31,7 +33,11 @@
         </ion-item>
         <br>
           <ion-button color="danger" (click)="goBack()">cancel</ion-button>
-          <ion-button color="success" >Post +</ion-button>
+          <ion-button color="success" >Create +</ion-button>
         </ion-card-content>
       </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+    
 </ion-content>

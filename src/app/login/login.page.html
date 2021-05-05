@@ -7,24 +7,23 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" (submit)="login($event)">
   <div>
     <ion-card>
       <ion-card-content>
-        <h1>Login</h1>
-        <span>{{ varSample }}</span>
-        <ion-item>
-          <ion-label position="floating">username</ion-label>
-          <ion-input type="text" [(ngModel)]="varSample"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating">password</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
-        <br>
-          <ion-button type="button" color="danger">cancel</ion-button>
-          <ion-button type="button" (click)="login()">Login</ion-button>
-        </ion-card-content>
-      </ion-card>
+        <ion-label>Login</ion-label>
+        <form ngNativeValidate > 
+          <ion-item>
+            <ion-label position="floating">Username</ion-label>
+            <ion-input type="text" id="uname" name="uname" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password" id="password" name="password" required></ion-input>
+          </ion-item>
+          <ion-button expand="full" type="submit" ><b>Log in</b></ion-button>
+        </form>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>

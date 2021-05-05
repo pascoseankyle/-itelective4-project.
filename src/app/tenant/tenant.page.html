@@ -7,7 +7,10 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-      <ion-button (click)="goToHome()"><ion-icon name="arrow-back-outline"></ion-icon>back</ion-button>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-button (click)="goToHome()"><ion-icon name="arrow-back-outline"></ion-icon>back</ion-button>
        <ion-item>
           <ion-label position="floating"><ion-icon name="search-outline"></ion-icon>Search</ion-label>
           <ion-input type="text"></ion-input>
@@ -18,8 +21,11 @@
             <p>Budget: ₱{{ post.post_tenant_budget }}</p>
             <ion-card>
               <ion-img style="height:100%;width:100%" src="https://miro.medium.com/max/875/1*PgIo7r6qQXem8BmWd-vksQ.jpeg"></ion-img>
-            </ion-card>
-            <ion-button expand="full">view</ion-button>
+            </ion-card> 
+            <ion-button expand="full">view <ion-icon style="margin-left: 5px;" name="eye-outline"></ion-icon> </ion-button>
           </ion-card-content>
         </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
