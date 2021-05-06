@@ -29,10 +29,8 @@ export class HomePage {
 
   getPosts(){
     this.data.getData('post').subscribe((res)=>{
-      console.log(res);
       this.posts = res;
       this.post = this.posts.payload;
-      console.log(this.post);
     });
   }
 }

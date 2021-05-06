@@ -24,10 +24,8 @@ export class TenantPage implements OnInit {
   
   getPostsTenant(){
     this.data.getData('tenant').subscribe((res)=>{
-      console.log(res);
       this.posts = res;
       this.post = this.posts.payload;
-      console.log(this.post);
     });
   }
 

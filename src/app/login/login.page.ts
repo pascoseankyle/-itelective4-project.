@@ -12,10 +12,8 @@ export class LoginPage implements OnInit {
   username: string = "asa";
   password: string = "asa";
   users: any;
-  posts: any;
-  post: any;
 
-  constructor(private data: DataService, private router: Router, public user: UserService) {}
+  constructor(private router: Router, public user: UserService) {}
 
   ngOnInit() {}
 
