@@ -1,0 +1,51 @@
+*{
+    font-family: arial,sans-serif;
+  }
+  .ion-button{
+    ion-button{
+        text-transform: capitalize;
+        font-weight: 300;
+        --background: #f0a500;
+        --border-radius: 7px;
+        --box-shadow: none;
+    }
+  }
+  .ion-button-full{
+    border-radius: 50px;
+    padding: 10px;
+    ion-button{
+        text-transform: capitalize;
+        font-weight: 300;
+        width: 100%;
+        --background: #f0a500;
+        --border-radius: 7px;
+        --box-shadow: none;
+    }
+  }
+  .ion-button-edit{
+    border-radius: 50px;
+    padding: 10px;
+  
+    ion-button{
+        text-transform: capitalize;
+        font-weight: 300;
+        width: 100%;
+        --background: #54e346;
+        --border-radius: 7px;
+        --box-shadow: none;
+    }
+  }
+  
+  .ion-button-logout{
+    border-radius: 50px;
+    padding: 10px;
+  
+    ion-button{
+        text-transform: capitalize;
+        font-weight: 300;
+        width: 100%;
+        --background: #ea2c62;
+        --border-radius: 7px;
+        --box-shadow: none;
+    }
+  }
