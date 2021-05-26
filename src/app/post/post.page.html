@@ -1,12 +1,9 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color='primary'>
-    <ion-title>
-      <ion-icon name="home-outline"></ion-icon>
-      Tenant Hunt / Post
-    </ion-title>
+  <ion-toolbar>
+    <ion-img class="" src="assets/icon/home.png" style="width: 100px; height: 100px;"></ion-img>
   </ion-toolbar>
 </ion-header>
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" (submit)="addPost($event)">
   <ion-grid>
     <ion-row>
       <ion-col size-md="6" offset-md="3">
@@ -15,29 +12,33 @@
         </div>
     <ion-card>
       <ion-card-content>
+        <form>
         <h1>Create Post</h1>
         <ion-item>
           <ion-label position="floating">Title</ion-label>
-          <ion-input type="text"></ion-input>
+          <!-- <ion-input  [(ngModel)]="post_title" id="post_title" name="post_title" type="text"></ion-input> -->
+          <ion-input id="post_title" name="post_title" type="text" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Location</ion-label>
-          <ion-input type="text"></ion-input>
+          <!-- <ion-input [(ngModel)]="post_location" id="post_location" name="post_location" type="text"></ion-input> -->
+          <ion-input id="post_location" name="post_location" type="text" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="floating">Price per Month</ion-label>
-          <ion-input type="text"></ion-input>
+          <!-- <ion-input [(ngModel)]="post_price_month" id="post_price_month" name="post_price_month" type="text"></ion-input> -->
+          <ion-input id="post_price_month" name="post_price_month" type="number" required></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating">Image :</ion-label>
-          <br>
-          <ion-input type="file" id="myfile" name="myfile" multiple></ion-input>
+          <ion-label position="floating">Description :</ion-label>
+          <ion-input type="text" id="post_description" name="post_description" required></ion-input>
         </ion-item>
         <br>
         <div class="ion-button">
-          <ion-button color="danger" (click)="goBack()">cancel</ion-button>
-          <ion-button color="success" >Create +</ion-button>
+          <ion-button type="button" color="danger" (click)="goBack()">cancel</ion-button>
+          <ion-button type="submit" color="success" >Create +</ion-button>
         </div>
+      </form>
         </ion-card-content>
       </ion-card>
       </ion-col>

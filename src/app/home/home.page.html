@@ -1,9 +1,6 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color='primary'>
-    <ion-title>
-      <ion-icon name="home-outline"></ion-icon>
-      Tenant Hunt / Home
-    </ion-title>
+  <ion-toolbar>
+    <ion-img class="" src="assets/icon/home.png" style="width: 100px; height: 100px;"></ion-img>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
@@ -19,25 +16,59 @@
         <div class="ion-button-edit">
           <ion-button (click)="goToPost()" color="success">Make a Post<ion-icon name="add-circle-outline"></ion-icon></ion-button>
         </div>
+        <ion-item (click)="openAdModal()">
+          <ion-img src="https://media.tenor.com/images/5f7073998a3d74f5a88bd62596598ee2/tenor.gif"></ion-img>
+        </ion-item>
       <ion-item>
-        <ion-label position="floating"><ion-icon name="search-outline"></ion-icon>Search</ion-label>
-        <ion-input type="text"></ion-input>
+        <!-- <ion-label position="floating"><ion-icon name="search-outline"></ion-icon>Search</ion-label>
+        <ion-input type="text"></ion-input> -->
         </ion-item>
     
       <ion-card *ngFor="let post of post">
         <ion-card-content>
           <ion-label>{{ post.post_title }}</ion-label>
           <p>{{ post.post_location }}</p>
-          <ion-card>
-            <ion-img style="height:100%;width:100%" src="http://www.propertyfinderph.com/uploads/listing-photo/listings-photo/46326/174789/620_400-b56d457d03.jpg"></ion-img>
+          <ion-card class="ion-img">
+            <ion-img src="https://q-xx.bstatic.com/xdata/images/hotel/840x460/83957250.jpg?k=0d297eb60b97e8034add384675dd4b3a574e67844f3d471d7af2f55607267f9d&o="></ion-img>
           </ion-card>
           <div class="ion-button-full">
-            <ion-button>view<ion-icon style="margin-left:5px" name="eye-outline"></ion-icon></ion-button>
+            <ion-button (click)="openPostModal(post)">view<ion-icon style="margin-left:5px" name="eye-outline"></ion-icon></ion-button>
           </div>
         </ion-card-content>
       </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
-    
+  <div class="modal" *ngIf="modalActive">
+    <div class="modal-content">
+      <ion-button (click)="closePostModal()" class="ion-button">back</ion-button>
+      <ion-input [(ngModel)]="postArray.post_id" type="hidden"></ion-input>
+      <ion-item>
+        <ion-label position="floating">Title</ion-label>
+        <h3>{{ postArray.post_title }}</h3>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Location</ion-label>
+          <p>{{ postArray.post_location }} <p>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Price Per Month</ion-label>
+        <p>{{ postArray.post_price_month }}</p>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Description</ion-label>
+        <p>{{ postArray.post_description }} </p>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Mobile</ion-label>
+        <p>{{ postArray.user_mobile }} </p>
+      </ion-item>
+    </div>
+  </div>
+  <div class="modal" *ngIf="adMOdal">
+    <div class="modal-content">
+      <ion-button (click)="closeAdModal()">close</ion-button>
+      <img src="https://media2.giphy.com/media/cnEDu4hvseecxGwieV/source.gif">
+    </div>
+  </div>
 </ion-content>

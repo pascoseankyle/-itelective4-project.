@@ -8,29 +8,45 @@ import { Router } from '@angular/router'; // Navigation
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  posts: any;
   post: any;
-
+  id: any;
+  modalActive: boolean = false;
+  adMOdal: boolean =false;
+  postArray: any = {};
   constructor(private data: DataService, private router: Router) {}
-
   ngOnInit() {
-    this.getPosts(); // Call Function
+    this.getPosts();
   }
-
-  goToProfile(){
+  goToProfile() { 
     this.router.navigate(['profile']);
   }
-  goToPost(){
+  goToPost() {
     this.router.navigate(['post']);
   }
-  goToTenants(){
+  goToTenants() {
     this.router.navigate(['tenant']);
   }
-
-  getPosts(){
-    this.data.getData('post').subscribe((res)=>{
-      this.posts = res;
-      this.post = this.posts.payload;
-    });
+  getPosts() {
+    this.data.getData("all_post", null).subscribe((results: any) => {
+      this.post = results.payload;
+    })
+  }
+  openPostModal(post: any) {
+    this.postArray.post_id = post.post_id;
+    this.postArray.post_title = post.post_title;
+    this.postArray.post_location = post.post_location;
+    this.postArray.post_price_month = post.post_price_month;
+    this.postArray.post_description = post.post_description;
+    this.postArray.user_mobile = post.user_mobile;
+    this.modalActive = true;
+  }
+  closePostModal() {
+    this.modalActive = false;
+  }
+  openAdModal(){
+    this.adMOdal =true;
+  }
+  closeAdModal(){
+    this.adMOdal =false;
   }
 }

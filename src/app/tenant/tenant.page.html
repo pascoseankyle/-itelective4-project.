@@ -1,9 +1,6 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color='primary'>
-    <ion-title>
-      <ion-icon name="home-outline"></ion-icon>
-      Tenant Hunt / Tenant
-    </ion-title>
+  <ion-toolbar>
+    <ion-img class="" src="assets/icon/home.png" style="width: 100px; height: 100px;"></ion-img>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
@@ -13,6 +10,9 @@
         <div class="ion-button">
           <ion-button (click)="goToHome()"><ion-icon name="arrow-back-outline"></ion-icon>back</ion-button>
         </div>
+        <div class="ion-button-edit">
+          <ion-button color="success" (click)="openTenantModal()">Add Post as Tenant</ion-button>
+        </div>
        <ion-item>
           <ion-label position="floating"><ion-icon name="search-outline"></ion-icon>Search</ion-label>
           <ion-input type="text"></ion-input>
@@ -21,15 +21,54 @@
           <ion-card-content>
             <ion-label>{{ post.post_tenant_title }}</ion-label>
             <p>Budget: ₱{{ post.post_tenant_budget }}</p>
-            <ion-card>
-              <ion-img style="height:100%;width:100%" src="https://miro.medium.com/max/875/1*PgIo7r6qQXem8BmWd-vksQ.jpeg"></ion-img>
+            <ion-card class="img-img">
+              <ion-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyq5UVsMrLsOhWXyjEBxVBRMHrOgyXJYw02w&usqp=CAU"></ion-img>
             </ion-card> 
             <div class="ion-button-full">
-              <ion-button>view <ion-icon style="margin-left: 5px;" name="eye-outline"></ion-icon> </ion-button>
+              <ion-button (click)="openView(post)">view <ion-icon style="margin-left: 5px;" name="eye-outline"></ion-icon> </ion-button>
             </div>
           </ion-card-content>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
+  <div class="modal" *ngIf="addTenantModal">
+    <div class="modal-content">
+      <ion-button (click)="closeTenantModal()">close</ion-button>
+      <ion-item>
+        <ion-label position="floating">Title</ion-label>
+        <ion-input name="tenant_title" [(ngModel)]="tenantPost.title" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Place you are looking for?</ion-label>
+        <ion-input name="tenant_location"  [(ngModel)]="tenantPost.location" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Budget you have?</ion-label>
+        <ion-input name="tenant_budget" type="number" [(ngModel)]="tenantPost.budget" required></ion-input>
+      </ion-item>
+      <ion-button color="success" style="width:100%" (click)="addTenant()">add Post</ion-button>
+    </div>
+  </div>
+  <div class="modal" *ngIf="viewPost">
+    <div class="modal-content">
+      <ion-button (click)="closeView()"> back </ion-button>
+      <ion-item>
+        <ion-label>Title</ion-label>
+        <h1>{{ viewPostData.title }}</h1>
+      </ion-item>
+      <ion-item>
+        <ion-label>Budget</ion-label>
+        <p>{{ viewPostData.budget  }}</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>Location</ion-label>
+        <p>{{ viewPostData.location  }}</p>
+      </ion-item>
+      <ion-item>
+        <ion-label>Mobile</ion-label>
+        <p>{{ viewPostData.mobile }}</p>
+      </ion-item>
+    </div>
+  </div>
 </ion-content>

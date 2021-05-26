@@ -1,9 +1,6 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color='primary'>
-    <ion-title>
-      <ion-icon name="home-outline"></ion-icon>
-      Tenant Hunt
-    </ion-title>
+  <ion-toolbar>
+    <ion-img class="" src="assets/icon/home.png" style="width: 100px; height: 100px;"></ion-img>
   </ion-toolbar>
 </ion-header>
 
@@ -26,6 +23,9 @@
                 </ion-item>
                 <div class="ion-button-full">
                   <ion-button type="submit" ><b>Log in</b></ion-button>
+                </div>
+                <div class="ion-button-signup">
+                  <ion-button (click)="signup()" type="button" ><b>Sign up</b></ion-button>
                 </div>
               </form>
             </ion-card-content>
